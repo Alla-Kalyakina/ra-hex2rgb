@@ -4,14 +4,11 @@ import './App.css'
 
 function App() {
   const [state, setState] = useState<string>('')
-  const currentColor = useRef(state)
+  const currentColor = useRef<HTMLInputElement | null>(null)
   
   const inputChangeColor = () => {
+    if(currentColor.current === null) return
     setState(currentColor.current.value)
-    /*const hexColorCheck = /#([a-f0-9]{6}|[a-f0-9]{3})\b/gi;
-    if(state.match(hexColorCheck)) {
-      setState(currentColor.current.value)
-    }*/
   }
 
   return (
